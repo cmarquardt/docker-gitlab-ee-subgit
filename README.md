@@ -2,9 +2,9 @@
 
 Image: [marq/gitlab-ee-subgit](https://hub.docker.com/r/marq/gitlab-ee-subgit/)
 
-[GitLab](http://gitlab.org)'s Enterprise Edition, with [SubGit](http://www.subgit.com) v3.0.0 installed.
+[GitLab](http://gitlab.org)'s Enterprise Edition, with [SubGit](http://www.subgit.com) v3.0.0 installed. Note that a valid license will be required to use GitLab EE, available from [GitLab](http://gitlab.org).
 
-All of [GitLab's Docker-related documentation](http://doc.gitlab.com/omnibus/docker/) remains valid; the only difference compared to the [official Docker image(s)](https://hub.docker.com/r/gitlab/gitlab-ce/) provided by GitLabHQ is that this image contains an installation of SubGit, a tool for migrating and even mirroring subversion and git source code repositories. In addition, one more volume (`/etc/subgit`) is exposed, allowing to store SubGit related  things like a license key.
+All of [GitLab's Docker-related documentation](http://doc.gitlab.com/omnibus/docker/) remains valid; the only difference compared to the [official Docker image(s)](https://hub.docker.com/r/gitlab/gitlab-ee/) provided by GitLabHQ is that this image contains an installation of SubGit, a tool for migrating and even mirroring subversion and git source code repositories. In addition, one more volume (`/etc/subgit`) is exposed, allowing to store SubGit related  things like a license key.
 
 [Subgit's SVN to Gitlab Howto](http://www.subgit.com/gitlab.html) is a worthwhile read.
 
@@ -35,3 +35,5 @@ Note that the tag `:latest` is automatically build from the official GitLab repo
 ## Related
 
 Bertrand Roussel provides at standalone Docker image ([corfr/subgit](https://registry.hub.docker.com/u/corfr/subgit/) | [Github](https://github.com/CoRfr/docker-subgit)) for an alternative approach to use SubGit with (in fact any) dockerized git repository servers.
+
+If you are looking for a Docker image combining GitLab's Community Edition (CE) with SubGit, please check out [marq/gitlab-ee-subgit](https://hub.docker.com/r/marq/gitlab-ee-subgit/).
