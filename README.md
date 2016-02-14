@@ -35,3 +35,5 @@ Note that the tag `:latest` is automatically build from the official GitLab repo
 ## Related
 
 Bertrand Roussel provides at standalone Docker image ([corfr/subgit](https://registry.hub.docker.com/u/corfr/subgit/) | [Github](https://github.com/CoRfr/docker-subgit)) for an alternative approach to use SubGit with (in fact any) dockerized git repository servers.
+
+If you are looking for a Docker image combining GitLab's Community Edition (CE) with SubGit, please check out [marq/gitlab-ce-subgit](https://hub.docker.com/r/marq/gitlab-ce-subgit/).
