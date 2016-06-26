@@ -34,7 +34,7 @@ Note that the tag `:latest` is automatically build from the official GitLab repo
 
 ## SubGit Versions
 
-Starting with the image for v8.7 of GitLab, the SubGit included in this image is at v3.1.2. For a while, I'll be maintaining an alternate image with the older v3.0.0 of SubGit included. The images can be distinguished by their tags, e.g.:
+Starting with the image for v8.7 of GitLab, the SubGit included in this image is at v3.2.0. For a while, I'll be maintaining an alternate image with the older v3.0.0 of SubGit included. The images can be distinguished by their tags, e.g.:
 
     gitlab-ee-subgit:8.7.0-ee.0:        GitLab v8.7.0 (EE), SubGit v3.2.0
     gitlab-ee-subgit:8.7.0-ee.0-3.0.0:  GitLab v8.7.0 (EE), SubGit v3.0.0
