@@ -1,4 +1,4 @@
-FROM gitlab/gitlab-ee:8.11.2-ee.1
+FROM gitlab/gitlab-ee:8.11.7-ee.0
 MAINTAINER Christian Marquardt
 
 # Subgit version
@@ -11,7 +11,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* /tmp/*
 
 # Download subgit from official website and install
-RUN curl -o subgit.deb -q http://old.subgit.com/download/subgit_${SUBGIT_VERSION}_all.deb && \
+RUN curl -o subgit.deb -q https://subgit.com/download/subgit_${SUBGIT_VERSION}_all.deb && \
     dpkg -i subgit.deb && \
     rm -fr subgit.deb
 
