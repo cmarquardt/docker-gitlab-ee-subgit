@@ -1,4 +1,4 @@
-FROM gitlab/gitlab-ee:8.13.0-ee.0
+FROM gitlab/gitlab-ee:8.13.11-ee.0
 MAINTAINER Christian Marquardt
 
 # Subgit version
