@@ -2,7 +2,7 @@ FROM gitlab/gitlab-ee:8.17.8-ee.0
 MAINTAINER Christian Marquardt
 
 # Subgit version
-ENV SUBGIT_VERSION 3.2.2
+ENV SUBGIT_VERSION 3.2.5
 
 # Install Java
 RUN apt-get update && \

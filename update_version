@@ -130,7 +130,7 @@ fi
 
 git add Dockerfile
 git commit -m "Update to GitLab (EE) v$new_version."
-git tag $new_version -m "Update to GitLab (EE) v$new_version w/ SubGit v3.2.2."
+git tag $new_version -m "Update to GitLab (EE) v$new_version w/ SubGit v3.2.5."
 git push
 git push --tags
 
