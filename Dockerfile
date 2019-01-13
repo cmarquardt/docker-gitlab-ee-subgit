@@ -1,5 +1,5 @@
 
-FROM gitlab/gitlab-ee:10.3.6-ee.0
+FROM gitlab/gitlab-ee:10.3.7-ee.0
 MAINTAINER Christian Marquardt
 
 # Subgit version
