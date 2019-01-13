@@ -1,12 +1,12 @@
 # gitlab-ee-subgit
 
-Image: [marq/gitlab-ee-subgit](https://hub.docker.com/r/marq/gitlab-ee-subgit/)
+Docker image: [marq/gitlab-ee-subgit](https://hub.docker.com/r/marq/gitlab-ee-subgit/)
 
-[GitLab](http://gitlab.org)'s Enterprise Edition, with [SubGit](http://www.subgit.com) v3.2.5 installed.
+[GitLab](http://gitlab.org)'s Enterprise Edition, with [SubGit](http://www.subgit.com) v3.3.5 installed and `cron` running.
 
-All of [GitLab's Docker-related documentation](http://doc.gitlab.com/omnibus/docker/) remains valid; the only difference compared to the [official Docker image(s)](https://hub.docker.com/r/gitlab/gitlab-ee/) provided by GitLabHQ is that this image contains an installation of SubGit, a tool for migrating and even mirroring subversion and git source code repositories. In addition, one more volume (`/etc/subgit`) is exposed, allowing to store SubGit related  things like a license key.
+All of [GitLab's Docker-related documentation](http://doc.gitlab.com/omnibus/docker/) remains valid; the only difference compared to the [official Docker image(s)](https://hub.docker.com/r/gitlab/gitlab-ee/) provided by GitLab HQ is that this image contains an installation of SubGit, a tool for migrating and even mirroring subversion and git source code repositories. In addition, one more volume (`/etc/subgit`) is exposed, allowing to store SubGit related  things like a license key. Finally, the `cron` daemon is started up upon launching the image, and the corresponding system directory `/etc/cron.d` is also exported 
 
-[Subgit's SVN to Gitlab Howto](http://www.subgit.com/gitlab.html) is a worthwhile read.
+[Subgit's SVN to Gitlab Howto](http://www.subgit.com/gitlab.html) is a worthwhile read. Note that his Docker image only contains the SubGit software, but no configuration or license files for it.
 
 ## Volumes
 
@@ -16,9 +16,9 @@ All of [GitLab's Docker-related documentation](http://doc.gitlab.com/omnibus/doc
 
 `/var/log/gitlab`: Logfiles
 
-`/etc/subgit`: Location for subgit.key (if available; SubGit will find it there)
+`/etc/subgit`: Location for subgit.key (if available, SubGit will find it there)
 
-`/etc/cron.d`: Location for cron jobs (e.g., backups; see below)
+`/etc/cron.d`: Location for cron jobs (e.g., backups)
 
 ## Usage
 
@@ -26,22 +26,30 @@ For GitLab itself, see http://doc.gitlab.com/omnibus/docker/.
 
 For SubGit and Gitlab, see http://www.subgit.com/gitlab.html.
 
-In contrast to the original image, the cron daemon is also launched when starting up GitLab. This allows processing of cron jobs added to /etc/cron.d.
+In contrast to the original image, the cron daemon is also launched when starting up GitLab. This allows processing of cron jobs added to `/etc/cron.d`. However, no cron obs are provided as part of this image.
 
-## Tags
+## GitLab Versions and Tags
 
-Note that the tag `:latest` is automatically build from the official GitLab repository; whenever GitlabHQ decides to push a new (even experimental) image. I handle versioned tags manually, based on officially tagged images as available in the Official GitLab repository. Should I forget to update, please raise a ticket at github. Thanks!
+The images are in general tagged with the GitLab version they are based on, and follow the name naming scheme as the official releases, but do not include release candidates. I handle these versioned tags manually; should I forget to update them, please raise a ticket at github. Thanks!  
+
+Finally, images with the `:latest` tag are automatically build from the official GitLab repository whenever Gitlab HQ decides to push a new (even experimental) image. 
+ 
 
 ## SubGit Versions
 
-Starting with the image for v8.11 of GitLab, the SubGit included in this image is at v3.2.2. For a while, I was maintaining an alternate image with the older v3.0.0 of SubGit included. The images can be distinguished by their tags, e.g.:
+Present images are using Subgit v3.3.5 (actually since v9.5.2 of GitLab), as does the `:latest` one.
+
+For older images, previous SubGit versions were used. In particular:
+
+ - GitLab v9.0 up to v9.5.1: SubGit v3.2.5
+ - GitLab v8.11 up to v8.17.8: SubGit v3.2.2 
+  
+For a while, I was maintaining alternate images with the older v3.0.0 of SubGit included. The images can be distinguished by their tags, e.g.:
 
     gitlab-ee-subgit:8.11.0-ee.1:        GitLab v8.11.0 (EE), SubGit v3.2.2
     gitlab-ee-subgit:8.11.0-ee.1-3.0.0:  GitLab v8.11.0 (EE), SubGit v3.0.0
 
-Since September 2016, v3.0.0. of SubGit is no longer available; hence, versions after v8.11.2 are available with the then current SubGit version. Starting with GitLab v9.0, SubGit is at v3.2.5.
-
-The `:latest` image is also using SubGit v3.2.5.
+Since September 2016, however, v3.0.0 of SubGit was no longer available; hence, versions after v8.11.2 are build with the then current SubGit version.
 
 ## Related
 
