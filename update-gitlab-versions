@@ -205,7 +205,7 @@ if __name__ == "__main__":
 
     branches, gtags, last = get_git_branches_and_tags(".")
 
-    # Extract and sort the tags we're interested in
+    # Extract the tags we're interested in
 
     tags = []
     for tag in dtags:
@@ -214,16 +214,24 @@ if __name__ == "__main__":
             if t > last:
                 tags.append(t)
 
+    # Check is there's something to update
+
+    if len(tags) == 0:
+        print("There are no new releases.")
+        exit(-1)
+
+    # Sort releases to be updated
+
     tags = sorted(tags, key = operator.attrgetter("major", "minor", "patch", "sp"))
 
-    # Provide a list ofimages that need to be built
+    # Provide a list of images that need to be built
 
     if args.list:
         for tag in tags:
             print("   %s" % tag)
         exit(0)
 
-    # Shorten list of tags (if desired)
+    # Shorten list of releases to be build (if desired)
 
     if args.max > 0 and len(tags) > args.max:
         tags = tags[0:args.max]
