@@ -246,6 +246,7 @@ if __name__ == "__main__":
                 repo.git.checkout("master")
                 repo.git.checkout("-b", branch)
                 repo.git.push(branch, u = "origin")
+                branches = repo.heads
 
         # Creating new Dockerfile
 
