@@ -243,6 +243,7 @@ if __name__ == "__main__":
         else:
             print("Creating new branch %s and pushing to origin..." % branch)
             if not args.dry_run:
+                repo.git.checkout("master")
                 repo.git.checkout("-b", branch)
                 repo.git.push(branch, u = "origin")
 
