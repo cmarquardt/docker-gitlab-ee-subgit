@@ -9,6 +9,8 @@ install: pip install -r requirements.txt
 # command to run tests
 script:
   - git fetch --all --tags
-  - git pull --all
+  - git fetch --unshallow
+  - git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
+  - git fetch origin
   - git branch -a
   - ./update-gitlab-versions --dry-run
