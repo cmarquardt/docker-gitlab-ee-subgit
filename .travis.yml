@@ -8,6 +8,6 @@ branches:
 install: pip install -r requirements.txt
 # command to run tests
 script:
-   - git fetch --tags
+   - git fetch --all --tags
    - git branch -a
    - ./update-gitlab-versions --dry-run
