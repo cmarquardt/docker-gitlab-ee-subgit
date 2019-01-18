@@ -4,4 +4,6 @@ python:
 # command to install dependencies
 install: pip install -r requirements.txt
 # command to run tests
-script: ./update-gitlab-versions --dry-run
+script:
+   - git tags
+   - ./update-gitlab-versions --dry-run
