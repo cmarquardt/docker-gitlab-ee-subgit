@@ -4,4 +4,9 @@ python:
 # command to install dependencies
 install: pip install -r requirements.txt
 # command to run tests
-script: ./update-gitlab-version --dry-run
+script:
+  - pwd
+  - ls -al
+  - which python3
+  - which python
+  - ./update-gitlab-version --dry-run
