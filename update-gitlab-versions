@@ -79,7 +79,7 @@ def get_git_branches_and_tags(path):
 
     rbranches = []
     for ref in repo.git.branch("-r").split("\n"):
-        rbranches.append(ref)
+        rbranches.append(ref.strip())
 
     return repo.heads, rbranches, gtags, last
 
@@ -258,6 +258,7 @@ if __name__ == "__main__":
 
         branch  = tag2branch(tag)
         rbranch = tag2rbranch(tag)
+
         if branch in branches:
             print("Switching to branch %s" % branch)
             if not args.dry_run:
