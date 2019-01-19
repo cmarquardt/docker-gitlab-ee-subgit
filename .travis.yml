@@ -1,6 +1,6 @@
 language: python
 python:
-  - "3.6"
+  - "3.7"
 branches:
   only:
   - master
@@ -11,4 +11,4 @@ script:
   - git fetch --all --tags
   - git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
   - git fetch origin
-  - ./update-gitlab-versions
+  - ./update-gitlab-versions --list
